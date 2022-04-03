@@ -1,0 +1,24 @@
+version: '3.9'
+
+services:
+  mongodb:
+    container_name: tr_mongo
+    image: mongo:latest
+    restart: always
+    volumes:
+      - mongodb:/data/db
+
+  api:
+    build: .
+    ports:
+      - 3000:3000
+    environment:
+      PORT: 3000
+      MONGODB_URI: mongodb://mongodb:27017
+      DB_NAME: my_db
+      NAME: TrulyMittal
+    depends_on:
+      - mongodb
+
+volumes:
+  mongodb: {}
