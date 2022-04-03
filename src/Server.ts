@@ -15,11 +15,3 @@ class Server {
 
 const server = new Server();
 server.start();
-
-/**
-const app = new App(
-    [ new PostsController(), ],
-    3000,
-);
-
-app.listen(); */
